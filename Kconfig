@@ -1,0 +1,39 @@
+menu "Zephyr"
+source "Kconfig.zephyr"
+
+config LED_BLINK_INTERVAL_MS
+	int "Intervalo do pisca digital (ms)"
+	range 50 5000
+	default 500
+	help
+	  Define o intervalo, em milissegundos, para alternar o estado do LED no modo GPIO.
+
+config LED_PWM_PERIOD_US
+	int "Período do PWM (us)"
+	range 100 20000
+	default 1000
+	help
+	  Define o período do sinal PWM usado para controlar o brilho do LED.
+
+config LED_PWM_STEP_PCT
+	int "Passo do brilho no modo PWM (%)"
+	range 1 50
+	default 5
+	help
+	  Percentual de variação aplicado ao duty cycle em cada passo do fade.
+
+config LED_PWM_STEP_INTERVAL_MS
+	int "Intervalo entre passos do efeito PWM (ms)"
+	range 10 1000
+	default 50
+	help
+	  Intervalo entre ajustes consecutivos de duty cycle no modo PWM.
+
+config BUTTON_DEBOUNCE_MS
+	int "Tempo de debounce do botão (ms)"
+	range 0 500
+	default 50
+	help
+	  Tempo mínimo entre leituras para evitar múltiplos acionamentos por rebote.
+
+endmenu
