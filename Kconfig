@@ -1,0 +1,40 @@
+source "Kconfig.zephyr"
+
+menu "Controle Ambiental"
+
+config TEMP_MIN_C
+	int "Temperatura mínima (°C)"
+	range -40 125
+	default 20
+
+config TEMP_MAX_C
+	int "Temperatura máxima (°C)"
+	range -40 125
+	default 28
+
+config HUM_MIN_PCT
+	int "Umidade mínima (%)"
+	range 0 100
+	default 35
+
+config HUM_MAX_PCT
+	int "Umidade máxima (%)"
+	range 0 100
+	default 65
+
+config TEMP_UPDATE_MS
+	int "Intervalo de atualização da temperatura (ms)"
+	range 100 10000
+	default 1200
+
+config HUM_UPDATE_MS
+	int "Intervalo de atualização da umidade (ms)"
+	range 100 10000
+	default 1600
+
+config QUEUE_DEPTH
+	int "Tamanho das filas de comunicação"
+	range 2 32
+	default 8
+
+endmenu
