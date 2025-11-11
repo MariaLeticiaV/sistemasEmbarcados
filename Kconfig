@@ -1,0 +1,24 @@
+source "Kconfig.zephyr"
+
+menu "Sincronizacao de Tempo via SNTP"
+
+config NTP_SERVER_ADDR
+	string "Endereco do servidor NTP"
+	default "192.0.2.10"
+
+config NTP_SERVER_PORT
+	int "Porta do servidor NTP"
+	range 1 65535
+	default 123
+
+config NTP_SYNC_INTERVAL_SEC
+	int "Intervalo entre atualizacoes (s)"
+	range 5 3600
+	default 60
+
+config NTP_QUEUE_DEPTH
+	int "Tamanho da fila de mensagens de tempo"
+	range 1 16
+	default 4
+
+endmenu
